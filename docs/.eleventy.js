@@ -10,6 +10,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('home', 'layouts/home.html');
   eleventyConfig.addLayoutAlias('page', 'layouts/page.html');
 
+  eleventyConfig.setLiquidOptions({
+    dynamicPartials: false, //TODO wrap partial names in quotes
+    strictFilters: false, //TODO fails on relative_url
+  });
+
   // Icon shortcode
   eleventyConfig.addLiquidShortcode("icon", function(name, classes, dimension) {
     var svg = Icons[name];
